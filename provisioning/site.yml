@@ -1,0 +1,6 @@
+---
+- name: Install basic setup
+  hosts: default
+  gather_facts: no
+  roles:
+    - php

@@ -1,0 +1,29 @@
+---
+- name: Install build-essential
+  apt:
+    name: build-essential
+    state: present
+  become: true
+
+- name: Install nodejs repo
+  shell: 'curl -sL https://deb.nodesource.com/setup_0.10 | sudo -E bash -'
+  args:
+    chdir: /tmp
+
+- name: Install nodejs, npm
+  apt:
+    name: nodejs
+    state: present
+  become: true
+
+- name: Configure yarn repo apt-key
+  shell: 'curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -'
+
+- name: Configure yarn repo inject package
+  shell: 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list'
+
+- name: Install yarn
+  apt:
+    name: yarn
+    state: present
+  become: true

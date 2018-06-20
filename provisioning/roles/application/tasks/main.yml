@@ -1,0 +1,4 @@
+---
+- name: install js dependencies
+  shell: yarn install
+    chdir: '{{ project_dir }}'

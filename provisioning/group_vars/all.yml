@@ -1,0 +1,11 @@
+dev_db:
+  root_username: root
+  username: user
+  password: test
+  privileges: '*.*:ALL'
+  user_host: '%'
+  name: testing
+  host: localhost
+  bind_address: '0.0.0.0'
+
+project_dir: /var/www/application
